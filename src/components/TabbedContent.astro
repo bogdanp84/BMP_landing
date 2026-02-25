@@ -3,7 +3,6 @@ import { NAV_ITEMS, TABBED_CONTENT_ID } from '../lib/constants';
 import ServicesTab from './tabs/ServicesTab.astro';
 import HowItWorksTab from './tabs/HowItWorksTab.astro';
 import AboutTab from './tabs/AboutTab.astro';
-import ContactTab from './tabs/ContactTab.astro';
 ---
 <section id={TABBED_CONTENT_ID} class="max-w-6xl mx-auto px-6 lg:px-8 py-20 lg:py-28 scroll-mt-24">
   <div class="flex flex-wrap gap-1 p-1.5 bg-steel-light border border-divider rounded-md mb-14" role="tablist" aria-label="Content sections">
@@ -31,14 +30,11 @@ import ContactTab from './tabs/ContactTab.astro';
     <div id="panel-about" class="tab-panel hidden" role="tabpanel" aria-labelledby="tab-about">
       <AboutTab />
     </div>
-    <div id="panel-contact" class="tab-panel hidden" role="tabpanel" aria-labelledby="tab-contact">
-      <ContactTab />
-    </div>
   </div>
 </section>
 
 <script>
-  const tabIds = ['services', 'how-it-works', 'about', 'contact'];
+  const tabIds = ['services', 'how-it-works', 'about'];
 
   function setActiveTab(tabId) {
     tabIds.forEach((id) => {
