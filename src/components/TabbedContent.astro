@@ -1,0 +1,87 @@
+---
+import { NAV_ITEMS, TABBED_CONTENT_ID } from '../lib/constants';
+import ServicesTab from './tabs/ServicesTab.astro';
+import HowItWorksTab from './tabs/HowItWorksTab.astro';
+import AboutTab from './tabs/AboutTab.astro';
+import ContactTab from './tabs/ContactTab.astro';
+---
+<section id={TABBED_CONTENT_ID} class="max-w-6xl mx-auto px-6 lg:px-8 py-20 lg:py-28 scroll-mt-24">
+  <div class="flex flex-wrap gap-1 p-1.5 bg-steel-light border border-divider rounded-md mb-14" role="tablist" aria-label="Content sections">
+    {NAV_ITEMS.map((item, i) => (
+      <button
+        type="button"
+        class="tab-btn px-4 py-2.5 rounded text-[0.8125rem] font-medium tracking-wide transition-colors focus:outline-none focus:ring-1 focus:ring-primary focus:ring-offset-2"
+        data-tab={item.id}
+        role="tab"
+        aria-selected={i === 0}
+        aria-controls={`panel-${item.id}`}
+        id={`tab-${item.id}`}
+      >
+        {item.label}
+      </button>
+    ))}
+  </div>
+  <div class="space-y-0">
+    <div id="panel-services" class="tab-panel" role="tabpanel" aria-labelledby="tab-services">
+      <ServicesTab />
+    </div>
+    <div id="panel-how-it-works" class="tab-panel hidden" role="tabpanel" aria-labelledby="tab-how-it-works">
+      <HowItWorksTab />
+    </div>
+    <div id="panel-about" class="tab-panel hidden" role="tabpanel" aria-labelledby="tab-about">
+      <AboutTab />
+    </div>
+    <div id="panel-contact" class="tab-panel hidden" role="tabpanel" aria-labelledby="tab-contact">
+      <ContactTab />
+    </div>
+  </div>
+</section>
+
+<script>
+  const tabIds = ['services', 'how-it-works', 'about', 'contact'];
+
+  function setActiveTab(tabId) {
+    tabIds.forEach((id) => {
+      const btn = document.querySelector(`[data-tab="${id}"]`);
+      const panel = document.getElementById(`panel-${id}`);
+      if (btn && panel) {
+        const isActive = id === tabId;
+        btn.classList.toggle('bg-primary', isActive);
+        btn.classList.toggle('text-on-primary', isActive);
+        btn.classList.toggle('bg-transparent', !isActive);
+        btn.classList.toggle('text-foreground', !isActive);
+        btn.setAttribute('aria-selected', String(isActive));
+        panel.classList.toggle('hidden', !isActive);
+      }
+    });
+    if (typeof window !== 'undefined') {
+      window.history.replaceState(null, '', `#${tabId}`);
+    }
+  }
+
+  document.querySelectorAll('.tab-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const tabId = btn.getAttribute('data-tab');
+      if (tabId) setActiveTab(tabId);
+    });
+  });
+
+  window.addEventListener('nav-tab-change', (e) => {
+    const tabId = e.detail?.tabId;
+    if (tabId) setActiveTab(tabId);
+  });
+
+  const hash = typeof window !== 'undefined' && window.location.hash ? window.location.hash.slice(1) : '';
+  if (hash && tabIds.includes(hash)) {
+    setActiveTab(hash);
+  }
+</script>
+
+<style>
+  .tab-btn:not([aria-selected="true"]) {
+    @apply bg-transparent text-steel hover:text-foreground hover:bg-surface;
+  }
+  .tab-btn[aria-selected="true"] {
+    @apply bg-primary text-on-primary;
+  }
+</style>

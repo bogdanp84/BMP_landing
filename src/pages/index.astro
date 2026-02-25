@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import GradientDivider from '../components/GradientDivider.astro';
+import TabbedContent from '../components/TabbedContent.astro';
+import Footer from '../components/Footer.astro';
+---
+<BaseLayout>
+  <div id="main-content">
+    <Nav />
+    <main>
+      <Hero />
+      <GradientDivider />
+      <TabbedContent />
+      <Footer />
+    </main>
+  </div>
+</BaseLayout>
+
+<script>
+  document.querySelectorAll('a[href="#tabbed-content"][data-tab]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.getElementById('tabbed-content')?.scrollIntoView({ behavior: 'smooth' });
+      window.dispatchEvent(new CustomEvent('nav-tab-change', { detail: { tabId: link.getAttribute('data-tab') } }));
+    });
+  });
+</script>

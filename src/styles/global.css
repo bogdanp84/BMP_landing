@@ -1,0 +1,28 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+    --slate: 0 0% 62%;
+    --steel: 0 0% 50%;
+    --steel-light: 0 0% 12%;
+    --surface: 0 0% 8%;
+    --divider: 0 0% 18%;
+    --primary: 0 0% 90%;
+    --on-primary: 0 0% 8%;
+    --destructive: 0 70% 55%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+}
