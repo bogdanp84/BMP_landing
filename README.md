@@ -33,6 +33,16 @@ npm run preview
 
 Static site. Contact form posts to Formspree when `PUBLIC_FORMSPREE_FORM_ID` is set.
 
+## Deploy with Dokploy (Nixpacks)
+
+The repo is set up for [Dokploy](https://dokploy.com) using **Nixpacks**:
+
+- **nixpacks.toml** — start command: `npx serve dist -s` (serves the Astro static build with SPA fallback).
+- **package.json** — `serve` dependency and `start` script for production.
+- **.nvmrc** — Node 18.
+
+In Dokploy, create a new app, connect this repo, and choose **Nixpacks** as the buildpack. Set `PUBLIC_FORMSPREE_FORM_ID` in the app environment variables if you use the contact form.
+
 ## Structure
 
 - **Nav:** Fixed bar, blurred on scroll; mobile hamburger; links scroll to tabbed area and switch tab

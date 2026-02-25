@@ -1,0 +1,6 @@
+# Nixpacks config for Dokploy deploy
+# Node provider runs: npm install, npm run build (Astro -> dist/)
+# Start: serve dist/ with SPA fallback for client-side routing
+
+[start]
+cmd = "npx serve dist -s"
