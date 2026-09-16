@@ -1,0 +1,16 @@
+title = "sensified gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Dev defaults and verified false positives (no real secrets)"
+regexTarget = "line"
+regexes = [
+  '''postgres(ql)?://postgres:postgres@''',
+  '''@(127\.0\.0\.1|localhost)(:|/)''',
+  '''@\$\{?[A-Za-z_]''',
+]
+stopwords = [
+  "local-dev-key",
+]
