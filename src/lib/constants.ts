@@ -9,4 +9,6 @@ export const NAV_ITEMS: { id: TabId; label: string }[] = [
 
 export const PHONE_NUMBER = '+40765847041';
 
+export const CONTACT_EMAIL = 'office@bmp-tech.ro';
+
 export const TABBED_CONTENT_ID = 'tabbed-content';

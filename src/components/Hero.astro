@@ -1,31 +1,39 @@
+---
+import { CONTACT_EMAIL, TABBED_CONTENT_ID } from '../lib/constants';
+---
 <section class="min-h-screen flex items-center px-6 lg:px-8 pt-20">
   <div class="max-w-4xl w-full mx-auto">
     <p class="text-[0.6875rem] font-medium tracking-[0.2em] text-steel uppercase mb-8">
       Build-Operate-Transfer &middot; Executive Leadership &middot; Romania
+    </p>
+    <h1 class="text-[2.25rem] lg:text-[2.75rem] font-semibold tracking-tight text-foreground mb-6 leading-[1.15]">
+      Interim Managing Director for your Romania delivery hub &mdash; built, run, then handed to your permanent local leader.
     </h1>
-    <h1 class="text-[2.25rem] lg:text-[2.75rem] font-semibold tracking-tight text-foreground mb-2 leading-[1.15]">
-      BMP: Build. Manage. Perform.
+    <p class="text-slate text-[0.9375rem] leading-relaxed mb-8 max-w-2xl">
+      BMP steps in as interim MD to launch and govern your Romanian engineering office under your brand and P&amp;L logic. When the operation is stable, we recruit, mentor, and transfer to the leader you keep. You get executive control from week one and a clean exit when you are ready.
     </p>
-    <p class="text-xl lg:text-2xl text-slate font-medium mb-10">
-      We build and run your Romania engineering office.
-    </p>
-    <p class="text-slate text-[0.9375rem] leading-relaxed mb-10 max-w-2xl">
-      BMP provides interim Managing Director leadership to launch, operate, and scale your Romanian delivery hub. When the operation is stable, we hire and onboard your permanent local leader and hand over.
-    </p>
-    <ul class="space-y-4 mb-12 text-slate text-[0.9375rem] leading-relaxed">
-      <li class="flex items-start gap-3">
-        <span class="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" aria-hidden="true"></span>
-        <span>Launch in 4–8 weeks: entity setup, hiring pipeline, operating cadence</span>
-      </li>
-      <li class="flex items-start gap-3">
-        <span class="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" aria-hidden="true"></span>
-        <span>Executive governance from day one: KPIs, risk logs, escalation control</span>
-      </li>
-      <li class="flex items-start gap-3">
-        <span class="w-1.5 h-1.5 rounded-full bg-foreground mt-2 shrink-0" aria-hidden="true"></span>
-        <span>Built-in exit: structured leadership transition when you are ready</span>
-      </li>
-    </ul>
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-8 text-slate text-[0.875rem] leading-relaxed" aria-label="Track record">
+      <span>Three Romania hubs stood up</span>
+      <span class="text-divider" aria-hidden="true">&middot;</span>
+      <span>Two subsidiaries run as Managing Director</span>
+      <span class="text-divider" aria-hidden="true">&middot;</span>
+      <span>Active Build&ndash;Operate&ndash;Transfer in flight</span>
+    </div>
+    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-12">
+      <a
+        href={`mailto:${CONTACT_EMAIL}?subject=BMP%20diagnose%20call`}
+        class="inline-flex items-center justify-center rounded-md bg-foreground px-5 py-3 text-[0.875rem] font-semibold text-white transition-opacity hover:opacity-85 focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2"
+      >
+        Book a diagnose call (go / no-go in two weeks)
+      </a>
+      <a
+        href={`#${TABBED_CONTENT_ID}`}
+        data-tab="how-it-works"
+        class="inline-flex items-center justify-center rounded-md border border-divider px-5 py-3 text-[0.875rem] font-semibold text-foreground transition-colors hover:bg-steel-light focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2"
+      >
+        See how Build &rarr; Operate &rarr; Transfer works
+      </a>
+    </div>
     <div class="pt-6 border-t border-divider flex flex-wrap items-center gap-x-4 gap-y-1 text-steel text-[0.75rem] tracking-wide">
       <span>Delivery</span>
       <span class="text-divider" aria-hidden="true">&middot;</span>
