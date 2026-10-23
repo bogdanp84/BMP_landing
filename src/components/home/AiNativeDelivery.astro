@@ -8,7 +8,8 @@ const services = [
   },
   {
     title: 'Assessment readiness',
-    body: 'ASPICE gap analysis, SWE.x / SYS.x process definition and rollout, and AI-assisted evidence generation, run by an intacs™ Provisional Assessor.',
+    body: 'ASPICE gap analysis, SWE.x / SYS.x process definition and rollout, and AI-assisted work products with human review and traceability, run by an intacs™ Provisional Assessor.',
+    note: 'BMP prepares your teams for assessment. The formal assessment is run by an independent assessor, since an intacs™ assessor does not assess projects they consulted on.',
   },
   {
     title: 'Delivery recovery',
@@ -26,7 +27,7 @@ const steps = [
   {
     title: 'Pilot',
     time: 'weeks 3–8',
-    body: 'Automate one work package (e.g. SWE.5/6 tests) end to end, with evidence an assessor will accept.',
+    body: 'Automate one work package (e.g. SWE.5/6 tests) end to end, with evidence built to assessor expectations.',
     icon: 'M13 10V3L4 14h7v7l9-11h-7z',
   },
   {
@@ -81,7 +82,7 @@ const domains = [
         href={AUTOMATION_DIAGNOSE_MAILTO}
         class="inline-flex items-center justify-center rounded-md bg-foreground px-5 py-3 text-[0.875rem] font-semibold text-on-primary transition-opacity hover:opacity-85 focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2"
       >
-        Book a 30-min automation diagnose
+        Book a 2-week diagnose
       </a>
       <a
         href="#how-it-works"
@@ -102,6 +103,7 @@ const domains = [
       <article class="bg-surface border border-divider rounded-md p-6">
         <h3 class="text-base font-semibold text-foreground mb-3">{service.title}</h3>
         <p class="text-[0.875rem] text-slate leading-relaxed">{service.body}</p>
+        {service.note && <p class="text-[0.875rem] text-slate leading-relaxed mt-3">{service.note}</p>}
       </article>
     ))}
   </div>

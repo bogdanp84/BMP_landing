@@ -4,7 +4,7 @@ export const CONTACT_EMAIL = 'bogdan@bmp-tech.ro';
 
 export const DIAGNOSE_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('BMP diagnose call')}`;
 
-export const AUTOMATION_DIAGNOSE_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('30-min automation diagnose')}`;
+export const AUTOMATION_DIAGNOSE_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('2-week diagnose')}`;
 
 export const NAV_TABS = [
   { href: '/', label: 'AI-Native Delivery' },
