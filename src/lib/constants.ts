@@ -1,6 +1,6 @@
 export const PHONE_NUMBER = '+40765847041';
 
-export const CONTACT_EMAIL = 'office@bmp-tech.ro';
+export const CONTACT_EMAIL = 'bogdan@bmp-tech.ro';
 
 export const DIAGNOSE_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('BMP diagnose call')}`;
 
