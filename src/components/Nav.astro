@@ -1,53 +1,63 @@
 ---
-import { NAV_ITEMS, TABBED_CONTENT_ID } from '../lib/constants';
+import { DIAGNOSE_MAILTO, NAV_TABS } from '../lib/constants';
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+function isActive(href: string) {
+  return href === '/' ? path === '/' : path === href;
+}
+
+function tabClass(href: string) {
+  const base =
+    'text-[0.8125rem] tracking-wide transition-colors rounded-sm focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2 focus:ring-offset-zinc-950';
+  return isActive(href)
+    ? `${base} text-white font-semibold border-b-2 border-white pb-0.5`
+    : `${base} text-zinc-400 hover:text-white font-medium`;
+}
 ---
 <header id="main-nav" class="fixed top-0 left-0 right-0 z-40 transition-all duration-200">
   <div class="max-w-6xl mx-auto px-6 lg:px-8">
-    <nav class="flex items-center justify-between h-16 lg:h-[4.25rem]" aria-label="Main navigation">
-      <a href="#" class="font-semibold text-white text-[0.9375rem] tracking-tight">BMP: Build. Manage. Perform.</a>
-      <button
-        type="button"
-        id="nav-menu-toggle"
-        class="lg:hidden p-2.5 rounded-md text-zinc-400 hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2 focus:ring-offset-zinc-950"
-        aria-expanded="false"
-        aria-controls="nav-menu"
+    <nav class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 py-3 lg:h-[4.25rem] lg:py-0" aria-label="Main navigation">
+      <a href="/" class="font-semibold text-white tracking-tight shrink-0">
+        <span class="xl:hidden text-[0.9375rem]">BMP</span>
+        <span class="hidden xl:inline text-[0.9375rem]">BMP: Build. Manage. Perform.</span>
+      </a>
+      <div class="hidden lg:flex items-center gap-6">
+        {NAV_TABS.map((tab, index) => (
+          <>
+            {index > 0 && (
+              <span class="text-zinc-600" aria-hidden="true">|</span>
+            )}
+            <a href={tab.href} class={tabClass(tab.href)} aria-current={isActive(tab.href) ? 'page' : undefined}>
+              {tab.label}
+            </a>
+          </>
+        ))}
+      </div>
+      <a
+        href={DIAGNOSE_MAILTO}
+        class="inline-flex items-center justify-center rounded-md bg-foreground px-3 sm:px-4 py-2 text-[0.75rem] sm:text-[0.8125rem] font-semibold text-on-primary whitespace-nowrap transition-opacity hover:opacity-85 focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2 focus:ring-offset-zinc-950"
       >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-      <div id="nav-menu" class="hidden lg:flex items-center gap-10">
-        {NAV_ITEMS.map((item) => (
-          <a
-            href={`#${TABBED_CONTENT_ID}`}
-            class="nav-link text-zinc-400 hover:text-white text-[0.8125rem] font-medium tracking-wide uppercase transition-colors"
-            data-tab={item.id}
-          >
-            {item.label}
-          </a>
+        Book a diagnose call
+      </a>
+      <div class="lg:hidden flex flex-wrap items-center gap-x-4 gap-y-2 pb-3 basis-full">
+        {NAV_TABS.map((tab, index) => (
+          <>
+            {index > 0 && (
+              <span class="text-zinc-600" aria-hidden="true">|</span>
+            )}
+            <a href={tab.href} class={tabClass(tab.href)} aria-current={isActive(tab.href) ? 'page' : undefined}>
+              {tab.label}
+            </a>
+          </>
         ))}
       </div>
     </nav>
   </div>
-  <div id="nav-menu-dropdown" class="hidden lg:hidden absolute top-full left-0 right-0 bg-zinc-950/95 backdrop-blur-sm border-b border-zinc-800/50">
-    <div class="max-w-6xl mx-auto px-6 py-5 flex flex-col gap-1">
-      {NAV_ITEMS.map((item) => (
-        <a
-          href={`#${TABBED_CONTENT_ID}`}
-          class="nav-link py-2.5 text-zinc-400 hover:text-white text-sm font-medium transition-colors"
-          data-tab={item.id}
-        >
-          {item.label}
-        </a>
-      ))}
-    </div>
-  </div>
 </header>
 
-<script define:vars={{ TABBED_CONTENT_ID }}>
+<script>
   const nav = document.getElementById('main-nav');
-  const toggle = document.getElementById('nav-menu-toggle');
-  const dropdown = document.getElementById('nav-menu-dropdown');
 
   function updateNavScroll() {
     if (!nav) return;
@@ -60,22 +70,4 @@ import { NAV_ITEMS, TABBED_CONTENT_ID } from '../lib/constants';
 
   window.addEventListener('scroll', updateNavScroll);
   updateNavScroll();
-
-  toggle?.addEventListener('click', () => {
-    const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!expanded));
-    dropdown?.classList.toggle('hidden', expanded);
-  });
-
-  document.querySelectorAll('.nav-link').forEach((link) => {
-    link.addEventListener('click', (e) => {
-      const tabId = link.getAttribute('data-tab');
-      if (tabId) {
-        const event = new CustomEvent('nav-tab-change', { detail: { tabId } });
-        window.dispatchEvent(event);
-      }
-      dropdown?.classList.add('hidden');
-      toggle?.setAttribute('aria-expanded', 'false');
-    });
-  });
 </script>

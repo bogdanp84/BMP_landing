@@ -1,14 +1,18 @@
 ---
-import { PHONE_NUMBER } from '../lib/constants';
+import { PHONE_NUMBER, CONTACT_EMAIL } from '../lib/constants';
 ---
 <footer class="py-14 px-6 lg:px-8 border-t border-zinc-800/50">
   <div class="max-w-6xl mx-auto">
     <p class="font-semibold text-white text-[0.9375rem] tracking-tight mb-6">BMP : Build. Manage. Perform.</p>
     <nav class="flex flex-wrap gap-8 text-[0.8125rem] font-medium tracking-wide mb-6">
       <a href={`tel:${PHONE_NUMBER}`} class="text-zinc-400 hover:text-white transition-colors">Contact: {PHONE_NUMBER}</a>
+      <a href={`mailto:${CONTACT_EMAIL}`} class="text-zinc-400 hover:text-white transition-colors">Email: {CONTACT_EMAIL}</a>
       <a href="#" class="text-zinc-400 hover:text-white transition-colors">Privacy Policy</a>
       <a href="#" class="text-zinc-400 hover:text-white transition-colors">Imprint / Legal</a>
     </nav>
+    <p class="text-[0.8125rem] text-zinc-500 leading-relaxed mb-6">
+      Timișoara (HQ), Romania · Remote across EU, on-site in Germany and Austria
+    </p>
     <div class="border-t border-zinc-800/50 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm text-zinc-600 tracking-wide">
       <span class="inline-flex items-center gap-2">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">

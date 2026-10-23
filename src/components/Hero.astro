@@ -1,10 +1,10 @@
 ---
-import { CONTACT_EMAIL, TABBED_CONTENT_ID } from '../lib/constants';
+import { DIAGNOSE_MAILTO } from '../lib/constants';
 ---
-<section class="min-h-screen flex items-center px-6 lg:px-8 pt-20">
+<section class="flex items-start px-6 lg:px-8 pt-40 lg:pt-32 pb-16">
   <div class="max-w-4xl w-full mx-auto">
     <p class="text-[0.6875rem] font-medium tracking-[0.2em] text-steel uppercase mb-8">
-      Build-Operate-Transfer &middot; Executive Leadership &middot; Romania
+      Build-Operate-Transfer · Executive Leadership · Romania
     </p>
     <h1 class="text-[2.25rem] lg:text-[2.75rem] font-semibold tracking-tight text-foreground mb-6 leading-[1.15]">
       Interim Managing Director for your Romania delivery hub &mdash; built, run, then handed to your permanent local leader.
@@ -12,38 +12,25 @@ import { CONTACT_EMAIL, TABBED_CONTENT_ID } from '../lib/constants';
     <p class="text-slate text-[0.9375rem] leading-relaxed mb-8 max-w-2xl">
       BMP steps in as interim MD to launch and govern your Romanian engineering office under your brand and P&amp;L logic. When the operation is stable, we recruit, mentor, and transfer to the leader you keep. You get executive control from week one and a clean exit when you are ready.
     </p>
-    <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-8 text-slate text-[0.875rem] leading-relaxed" aria-label="Track record">
-      <span>Three Romania hubs stood up</span>
-      <span class="text-divider" aria-hidden="true">&middot;</span>
-      <span>Two subsidiaries run as Managing Director</span>
-      <span class="text-divider" aria-hidden="true">&middot;</span>
-      <span>Active Build&ndash;Operate&ndash;Transfer in flight</span>
-    </div>
+    <p class="mb-8 text-slate text-[0.875rem] leading-relaxed" aria-label="Track record">
+      Three Romania hubs stood up · Two subsidiaries run as Managing Director · Active Build–Operate–Transfer in flight
+    </p>
     <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-12">
       <a
-        href={`mailto:${CONTACT_EMAIL}?subject=BMP%20diagnose%20call`}
-        class="inline-flex items-center justify-center rounded-md bg-foreground px-5 py-3 text-[0.875rem] font-semibold text-white transition-opacity hover:opacity-85 focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2"
+        href={DIAGNOSE_MAILTO}
+        class="inline-flex items-center justify-center rounded-md bg-foreground px-5 py-3 text-[0.875rem] font-semibold text-on-primary transition-opacity hover:opacity-85 focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2 focus:ring-offset-zinc-950"
       >
         Book a diagnose call (go / no-go in two weeks)
       </a>
       <a
-        href={`#${TABBED_CONTENT_ID}`}
-        data-tab="how-it-works"
-        class="inline-flex items-center justify-center rounded-md border border-divider px-5 py-3 text-[0.875rem] font-semibold text-foreground transition-colors hover:bg-steel-light focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2"
+        href="#how-it-works"
+        class="inline-flex items-center justify-center rounded-md border border-divider px-5 py-3 text-[0.875rem] font-semibold text-foreground transition-colors hover:bg-steel-light focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2 focus:ring-offset-zinc-950"
       >
         See how Build &rarr; Operate &rarr; Transfer works
       </a>
     </div>
-    <div class="pt-6 border-t border-divider flex flex-wrap items-center gap-x-4 gap-y-1 text-steel text-[0.75rem] tracking-wide">
-      <span>Delivery</span>
-      <span class="text-divider" aria-hidden="true">&middot;</span>
-      <span>Operations</span>
-      <span class="text-divider" aria-hidden="true">&middot;</span>
-      <span>Scaling</span>
-      <span class="text-divider" aria-hidden="true">&middot;</span>
-      <span>Governance</span>
-      <span class="text-divider" aria-hidden="true">&middot;</span>
-      <span>Leadership transfer</span>
-    </div>
+    <p class="pt-6 border-t border-divider text-steel text-[0.75rem] tracking-wide">
+      Delivery · Operations · Scaling · Governance · Leadership transfer
+    </p>
   </div>
 </section>

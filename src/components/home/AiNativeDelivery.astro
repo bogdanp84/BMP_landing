@@ -1,0 +1,193 @@
+---
+import { AUTOMATION_DIAGNOSE_MAILTO } from '../../lib/constants';
+
+const services = [
+  {
+    title: 'AI test and verification',
+    body: 'Automate SWE.5/6 test activities while keeping the bidirectional traceability and evidence your assessor checks.',
+  },
+  {
+    title: 'Assessment readiness',
+    body: 'ASPICE gap analysis, SWE.x / SYS.x process definition and rollout, and AI-assisted evidence generation, run by an intacs™ Provisional Assessor.',
+  },
+  {
+    title: 'Delivery recovery',
+    body: 'Take a slipping safety-critical program back to green, with launch-readiness gates, risk escalation, and AI-assisted reporting where it actually helps.',
+  },
+];
+
+const steps = [
+  {
+    title: 'Diagnose',
+    time: 'week 1–2',
+    body: 'Map your V-cycle, toolchain, and ASPICE level. Output: where AI fits, the expected effort reduction, and the compliance risks.',
+    icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+  },
+  {
+    title: 'Pilot',
+    time: 'weeks 3–8',
+    body: 'Automate one work package (e.g. SWE.5/6 tests) end to end, with evidence an assessor will accept.',
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+  },
+  {
+    title: 'Scale',
+    time: '',
+    body: 'Roll the workflow out across programs and hand it over to your team as a repeatable, documented process.',
+    icon: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6',
+  },
+];
+
+const credentials = [
+  'intacs™ Automotive SPICE Provisional Assessor',
+  'PRINCE2 Practitioner',
+  'ISO 42001 AI Management Systems (trained)',
+  'ISO 26262 programs, ASIL A–D',
+  'IATF 16949, CMMI, AUTOSAR',
+];
+
+const trackRecord = [
+  'German premium OEM: led safety architects through ASIL-C clearance on a battery management unit',
+  'German premium OEM: Delivery Manager for system and software safety architecture on a central driving coordination unit',
+  'Telematics program: AI task force, ~70% SWE.5/6 test automation in three months, ASPICE-compliant',
+  'Italian OEM: recovered a slipping instrument-cluster program, with all SOP milestones met',
+  'German premium OEM: transferred a full head-up display platform from Germany to Romania',
+  'Three customer audits passed (CMMI, ISO 26262); IATF 16949 cleared',
+];
+
+const domains = [
+  'Embedded Software',
+  'AUTOSAR',
+  'ISO 26262',
+  'ASPICE',
+  'ADAS',
+  'Battery Management',
+  'Infotainment / HUD',
+  'Telematics',
+];
+---
+<section class="px-6 lg:px-8 pt-40 lg:pt-32 pb-16">
+  <div class="max-w-4xl w-full mx-auto">
+    <h1 class="text-[2rem] sm:text-[2.25rem] lg:text-[2.75rem] font-semibold tracking-tight text-foreground mb-6 leading-[1.15]">
+      AI-native delivery for safety-critical engineering — with ISO 26262 and ASPICE built in, not bolted on.
+    </h1>
+    <p class="text-slate text-[0.9375rem] leading-relaxed mb-8 max-w-3xl">
+      BMP embeds AI directly into your SWE.1–6 delivery: test automation, assessment evidence, and governance reporting, all run as ASPICE-compliant workflows with human review. Led by an intacs™ ASPICE assessor and PRINCE2 Practitioner with 15+ years of ASIL A–D programs for German premium OEMs and global Tier-1s.
+    </p>
+    <p class="text-slate text-[0.875rem] leading-relaxed mb-8 max-w-3xl" aria-label="Proof">
+      ~70% SWE.5/6 test automation in 3 months · 3 engineers covering the work of ~60 FTE · ASIL-C safety case delivered · CMMI and ISO 26262 customer audits passed
+    </p>
+    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+      <a
+        href={AUTOMATION_DIAGNOSE_MAILTO}
+        class="inline-flex items-center justify-center rounded-md bg-foreground px-5 py-3 text-[0.875rem] font-semibold text-on-primary transition-opacity hover:opacity-85 focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2"
+      >
+        Book a 30-min automation diagnose
+      </a>
+      <a
+        href="#how-it-works"
+        class="inline-flex items-center justify-center rounded-md border border-divider px-5 py-3 text-[0.875rem] font-semibold text-foreground transition-colors hover:bg-steel-light focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2"
+      >
+        See how it works
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="max-w-6xl mx-auto px-6 lg:px-8 py-16 lg:py-24" aria-labelledby="what-we-do">
+  <h2 id="what-we-do" class="text-[1.75rem] lg:text-[2rem] font-semibold tracking-tight text-foreground mb-10 leading-tight">
+    What we do
+  </h2>
+  <div class="grid md:grid-cols-3 gap-6">
+    {services.map((service) => (
+      <article class="bg-surface border border-divider rounded-md p-6">
+        <h3 class="text-base font-semibold text-foreground mb-3">{service.title}</h3>
+        <p class="text-[0.875rem] text-slate leading-relaxed">{service.body}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<section id="how-it-works" class="max-w-6xl mx-auto px-6 lg:px-8 py-16 lg:py-24 scroll-mt-40" aria-labelledby="how-it-works-heading">
+  <h2 id="how-it-works-heading" class="text-[1.75rem] lg:text-[2rem] font-semibold tracking-tight text-foreground mb-10 leading-tight">
+    How it works
+  </h2>
+  <div class="grid md:grid-cols-3 gap-8">
+    {steps.map((step) => (
+      <article>
+        <div class="w-11 h-11 rounded-lg bg-zinc-800 flex items-center justify-center mb-4">
+          <svg class="w-5 h-5 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d={step.icon} />
+          </svg>
+        </div>
+        <h3 class="text-base font-semibold text-foreground tracking-tight mb-1">{step.title}</h3>
+        {step.time && <p class="text-[0.75rem] text-steel font-medium mb-2">{step.time}</p>}
+        <p class="text-slate text-[0.875rem] leading-relaxed">{step.body}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<section class="max-w-6xl mx-auto px-6 lg:px-8 pb-16 lg:pb-24">
+  <p class="bg-steel-light border border-divider rounded-md px-6 py-5 text-foreground text-[0.9375rem] leading-relaxed">
+    AI accelerates the work. Engineers stay accountable for every safety decision.
+  </p>
+</section>
+
+<section class="max-w-6xl mx-auto px-6 lg:px-8 py-16 lg:py-24" aria-labelledby="credentials-heading">
+  <h2 id="credentials-heading" class="text-[1.75rem] lg:text-[2rem] font-semibold tracking-tight text-foreground mb-8 leading-tight">
+    Credentials
+  </h2>
+  <ul class="grid md:grid-cols-2 gap-x-8 gap-y-3 text-slate text-[0.9375rem] leading-relaxed">
+    {credentials.map((item) => (
+      <li class="flex items-start gap-2">
+        <span class="text-foreground mt-0.5 text-[0.75rem]" aria-hidden="true">&rarr;</span>
+        <span>{item}</span>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<section class="max-w-6xl mx-auto px-6 lg:px-8 py-16 lg:py-24" aria-labelledby="track-record-heading">
+  <h2 id="track-record-heading" class="text-[1.75rem] lg:text-[2rem] font-semibold tracking-tight text-foreground mb-8 leading-tight">
+    Track record
+  </h2>
+  <ul class="space-y-4 text-slate text-[0.9375rem] leading-relaxed max-w-3xl">
+    {trackRecord.map((item) => (
+      <li class="flex items-start gap-3">
+        <span class="text-foreground mt-0.5 text-[0.75rem]" aria-hidden="true">&rarr;</span>
+        <span>{item}</span>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<section class="max-w-6xl mx-auto px-6 lg:px-8 py-16 lg:py-24" aria-labelledby="domains-heading">
+  <h2 id="domains-heading" class="text-[1.25rem] font-semibold tracking-tight text-foreground mb-5">
+    Domain expertise
+  </h2>
+  <ul class="flex flex-wrap gap-2">
+    {domains.map((domain) => (
+      <li class="px-3 py-1.5 bg-steel-light border border-divider rounded text-[0.8125rem] text-slate">{domain}</li>
+    ))}
+  </ul>
+</section>
+
+<section class="max-w-6xl mx-auto px-6 lg:px-8 py-16 lg:py-24" aria-labelledby="who-for-heading">
+  <h2 id="who-for-heading" class="text-[1.25rem] font-semibold tracking-tight text-foreground mb-4">
+    Who this is for
+  </h2>
+  <p class="text-slate text-[0.9375rem] leading-relaxed max-w-3xl mb-8">
+    OEMs, Tier-1s and engineering services companies delivering ISO 26262 / ASPICE-governed software that want AI-driven throughput without putting compliance or assessment outcomes at risk.
+  </p>
+  <h3 class="text-base font-semibold tracking-tight text-foreground mb-2">Who this is not for</h3>
+  <p class="text-slate text-[0.9375rem] leading-relaxed max-w-3xl">
+    Teams looking for generic AI tooling with no regulated-delivery context, or pure staff augmentation.
+  </p>
+</section>
+
+<section class="max-w-6xl mx-auto px-6 lg:px-8 pt-4 pb-20">
+  <p class="text-slate text-[0.9375rem] leading-relaxed">
+    Building or stabilizing a Romania engineering hub?{' '}
+    <a href="/build-operate-transfer" class="text-foreground font-medium hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-foreground rounded-sm">See Build → Operate → Transfer →</a>
+  </p>
+</section>

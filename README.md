@@ -37,7 +37,7 @@ Static site. Contact form posts to Formspree when `PUBLIC_FORMSPREE_FORM_ID` is 
 
 The repo is set up for [Dokploy](https://dokploy.com) using **Nixpacks**:
 
-- **nixpacks.toml** — start command: `npx serve dist -s` (serves the Astro static build with SPA fallback).
+- **nixpacks.toml** — start command: `npx serve dist` (serves the Astro static build, including `/build-operate-transfer`).
 - **package.json** — `serve` dependency and `start` script for production.
 - **.nvmrc** — Node 18.
 

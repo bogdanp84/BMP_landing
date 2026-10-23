@@ -1,11 +1,15 @@
 ---
 import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
-  title?: string;
+  title: string;
+  description: string;
 }
 
-const { title = 'BMP: Build. Manage. Perform. — Romania Engineering Office, Built and Transferred' } = Astro.props;
+const { title, description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://bmp-tech.ro');
 ---
 <!doctype html>
 <html lang="en">
@@ -16,8 +20,14 @@ const { title = 'BMP: Build. Manage. Perform. — Romania Engineering Office, Bu
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical.href} />
   </head>
   <body class="min-h-screen bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950 text-white font-sans antialiased">
-    <slot />
+    <Nav />
+    <main>
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>
